@@ -74,7 +74,7 @@ app.delete("/api/users", (req, res) => {
 
   const query = "DELETE FROM users WHERE email = ?";
   connection.query(query, [email], (err, result) => {
-    if (err) return res.status(500).json({ error: err.message });
+    if (err) return res.status().json({ error: err.message });
     res.json({ message: "User deleted", affected: result.affectedRows });
   });
 });
