@@ -1,0 +1,8 @@
+ Set up database connection and write functions to do the following:
+connectToDatabase() – connect to your local MySQL or MongoDB
+createMember(data) – add a new member to the database
+getAllMembers() – get all members
+getMemberById(id) – get a single member (used in edit)
+updateMember(id, data) – update a member
+deleteMember(id) – delete a member
+:bulb: Use MySQL or MongoDB (whichever you know better). Share your functions with the team so they can call them.
