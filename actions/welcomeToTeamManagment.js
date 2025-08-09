@@ -1,4 +1,4 @@
-export const welcomeToTeamManagement = (req, res) => {
+const welcomeToTeamManagement = (req, res) => {
   res.setHeader("Content-Type", "text/html");
   res.write(`
     <html>
@@ -8,3 +8,5 @@ export const welcomeToTeamManagement = (req, res) => {
   `);
   return res.end();
 };
+
+exports.welcomeToTeamManagement = welcomeToTeamManagement;

@@ -1,5 +1,6 @@
 const http = require("http");
 const { requestHandler } = require("./handler");
+require("./db");
 
 const server = http.createServer(requestHandler);
 

@@ -1,20 +1,5 @@
-const http = require('http');
-
-const server = http.createServer((req, res) => {
-  console.log(req.url, req.method);
-  if (req.url === '/') {
-    res.setHeader('Content-Type', 'text/html');
-    res.write(`
-    <html>
-    <head></head>
-    <body>
-    <h1><a href="/home">Go To Page</a></h1>
-
-    </body>    
-    </html>
-`);
-  } else if (req.url === '/home') {
-        res.write(`
+const renderList = (req, res) => {
+  res.write(`
     <html>
 <style>
 table, th, td {
@@ -100,18 +85,7 @@ table, th, td {
 </body>
 </html>
         `);
-    return res.end();
-    
+  return res.end();
+};
 
-
-}
-    {
-    //  res.setHeader('Content-Type', 'text/html');
-
-  }
-});
-
-const PORT = 3003;
-server.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
-});
+exports.renderList = renderList;
