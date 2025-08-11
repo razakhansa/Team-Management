@@ -52,6 +52,15 @@ getAllUsers((err, usersData) => {
     console.log(usersData);
   }
 });
+const getUserByid = (id, res) => {
+  const query = "SELECT * FROM users WHERE id =?";
+  connection.query(query, [id], (err, results) => {
+    if (err) {
+      console.error("Error fetching users:", err);
+    }
+  });
+};
+module.exports = { getUserByid };
 
 
 let gau = getAllUsers;
