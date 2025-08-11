@@ -23,24 +23,11 @@ const createMemeber = async (payload, res) => {
   //   return res.status(400).json({ error: "Invalid users data" });
   // }
 
-  const values = users.map((u) => [
-    u.name,
-    u.email,
-    u.cnic,
-    u.designation,
-    u.joining,
-    u.address,
-    u.phone,
-  ]);
+  const values = users.map((u) => [u.name, u.email]);
   let query = "INSERT INTO users SET ?";
   const data = {
     name: payload.name,
     email: payload.email,
-    cnic: payload.cnic,
-    designation: payload.designation,
-    joining: payload.joining,
-    address: payload.address,
-    phone: payload.phone,
   };
 
   connection.query(query, data, (err, result) => {
