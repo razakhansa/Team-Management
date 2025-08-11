@@ -49,9 +49,12 @@ function getAllUsers(callback) {
 }
 getAllUsers((err, usersData) => {
   if (!err) {
-    console.log("", usersData);
+    console.log(usersData);
   }
 });
+
+
+let gau = getAllUsers;
 
 exports.createMemeber = createMemeber;
 //   connection.query("SELECT * FROM user
