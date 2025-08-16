@@ -1,7 +1,7 @@
 const { welcomeToTeamManagement } = require("./actions/welcomeToTeamManagment");
 const { renderList } = require("./actions/renderlist");
 const { createMemberForm } = require("./actions/createMember");
-const { createMember } = require("./db");
+const { createMemeber } = require("./db");
 const { submitForm } = require("./actions/save");
 
 const requestHandler = async (req, res) => {
@@ -13,7 +13,10 @@ const requestHandler = async (req, res) => {
     renderList(req, res);
   } else if (req.url === "/members/create" && req.method === "GET") {
     createMemberForm(req, res);
-  } else if (req.url === "/members/create" && req.method === "POST") {
+ } else if (req.url === "/members/create" && req.method === "POST"){
+  
+     
+ 
     const chunks = [];
     req.on("data", (chunk) => {
       chunks.push(chunk);
@@ -27,12 +30,13 @@ const requestHandler = async (req, res) => {
         dataObj[pair[0]] = pair[1];
       }
       // Here you would typically parse the request body to get the member details
-      createMember(dataObj, res);
+      createMemeber(dataObj, res);
     });
 
     return res.end();
-  } else if (req.url === "/members/create/submit" && req.method === "POST") {
-    submitForm(req, res);
+  }else if (req.url === "/members/create/submit" && req.method === "POST") {
+     submitForm(req, res)
   }
 };
+
 exports.requestHandler = requestHandler;
