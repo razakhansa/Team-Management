@@ -7,7 +7,7 @@ const submitForm = (req, res) =>{
           </head>
           <body>
             <h1>YOUR DATA IS Submit</h1>
-            <a href="./renderlist.js">Go to save data</a>
+            <a href="/renderlist">Go to save data</a>
           </body>
         </html>
   `)

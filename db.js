@@ -5,8 +5,10 @@ const connection = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "",
-  database: "team_management",
+  port: 3307,
+  database: "team_management", 
 });
+
 
 connection.connect((err) => {
   if (err) {
@@ -50,15 +52,17 @@ function getAllUsers(callback) {
 }
 getAllUsers((err, usersData) => {
   if (!err) {
-    console.log(usersData);
+    console.log( usersData);
   }
 });
-const getUserByid = (id, res) => {
+const getUserByid = (id, callback) => {
   const query = "SELECT * FROM users WHERE id =?";
   connection.query(query, [id], (err, results) => {
     if (err) {
-      console.error("Error fetching users:", err);
+      console.error("Error fetching users by ID:", err);
+      return callback(err, null);
     }
+    callback(null, results[0]);
   });
 };
 module.exports = { getUserByid };
@@ -67,31 +71,3 @@ module.exports = { getUserByid };
 let gau = getAllUsers;
 
 exports.createMemeber = createMemeber;
-//   connection.query("SELECT * FROM user
-// app.get("/api/users", (req, res) => {s", (err, results) => {
-//     if (err) return res.status(500).json({ error: err.message });
-//     res.json(results);
-//   });
-// });
-// app.put("/api/users", (req, res) => {
-//   const { name, email } = req.body;
-//   if (!email || !name)
-//     return res.status(400).json({ error: "Email and name required" });
-
-//   const query = "UPDATE users SET name = ? WHERE email = ?";
-//   connection.query(query, [name, email], (err, result) => {
-//     if (err) return res.status(500).json({ error: err.message });
-//     res.json({ message: "User updated", affected: result.affectedRows });
-//   });
-// });
-
-// app.delete("/api/users", (req, res) => {
-//   const { email } = req.body;
-//   if (!email) return res.status(400).json({ error: "Email required" });
-
-//   const query = "DELETE FROM users WHERE email = ?";
-//   connection.query(query, [email], (err, result) => {
-//     if (err) return res.status().json({ error: err.message });
-//     res.json({ message: "User deleted", affected: result.affectedRows });
-//   });
-// });
