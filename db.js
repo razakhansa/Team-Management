@@ -4,6 +4,7 @@ const connection = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "",
+  port: 3307,
   database: "jsproject",
 });
 
@@ -49,7 +50,7 @@ function getAllUsers(callback) {
 }
 getAllUsers((err, usersData) => {
   if (!err) {
-    console.log(usersData);
+    console.log( usersData);
   }
 });
 const getUserByid = (id, res) => {
