@@ -24,21 +24,51 @@ const createMemeber = async (payload, res) => {
   //   return res.status(400).json({ error: "Invalid users data" });
   // }
 
-  const values = users.map((u) => [u.name, u.email]);
   let query = "INSERT INTO users SET ?";
   const data = {
     name: payload.name,
     email: payload.email,
+    cnic: payload.cnic,
+    designation: payload.designation,
+    joining: payload.joining,
+    address: payload.address,
+    phone: payload.phone,
   };
 
   connection.query(query, data, (err, result) => {
     console.log(err, result);
   });
 };
+function getAllUsers(callback) {
+  connection.query("SELECT * FROM users", (err, results) => {
+    if (err) {
+      console.error("Error fetching users:", err);
+      return callback(err, null);
+    }
+    callback(null, results);
+  });
+}
+getAllUsers((err, usersData) => {
+  if (!err) {
+    console.log(usersData);
+  }
+});
+const getUserByid = (id, res) => {
+  const query = "SELECT * FROM users WHERE id =?";
+  connection.query(query, [id], (err, results) => {
+    if (err) {
+      console.error("Error fetching users:", err);
+    }
+  });
+};
+module.exports = { getUserByid };
+
+
+let gau = getAllUsers;
 
 exports.createMemeber = createMemeber;
-// app.get("/api/users", (req, res) => {
-//   connection.query("SELECT * FROM users", (err, results) => {
+//   connection.query("SELECT * FROM user
+// app.get("/api/users", (req, res) => {s", (err, results) => {
 //     if (err) return res.status(500).json({ error: err.message });
 //     res.json(results);
 //   });
