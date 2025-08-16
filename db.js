@@ -52,12 +52,14 @@ getAllUsers((err, usersData) => {
     console.log(usersData);
   }
 });
-const getUserByid = (id, res) => {
+const getUserByid = (id, callback) => {
   const query = "SELECT * FROM users WHERE id =?";
   connection.query(query, [id], (err, results) => {
     if (err) {
-      console.error("Error fetching users:", err);
+      console.error("Error fetching users by ID:", err);
+      return callback(err, null);
     }
+    callback(null, results[0]);
   });
 };
 module.exports = { createMember, getUserByid };
