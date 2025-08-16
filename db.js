@@ -1,4 +1,3 @@
-
 const mysql = require("mysql2");
 
 const connection = mysql.createConnection({
@@ -21,7 +20,7 @@ connection.connect((err) => {
   console.log(" Connected to the database successfully!");
 });
 
-const createMemeber = async (payload, res) => {
+const createMember = async (payload, res) => {
   console.log("Creating member");
   console.log(payload);
 
@@ -66,12 +65,11 @@ const getUserByid = (id, res) => {
     }
   });
 };
-module.exports = { getUserByid };
-
+module.exports = { createMember, getUserByid };
 
 let gau = getAllUsers;
 
-exports.createMemeber = createMemeber;
+exports.createMember = createMember;
 //   connection.query("SELECT * FROM user
 // app.get("/api/users", (req, res) => {s", (err, results) => {
 //     if (err) return res.status(500).json({ error: err.message });

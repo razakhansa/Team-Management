@@ -1,4 +1,4 @@
-const submitForm = (req, res) =>{
+const submitForm = (req, res) => {
   res.setHeader("Content-Type", "text/html");
   res.write(`
     <html>
@@ -7,10 +7,10 @@ const submitForm = (req, res) =>{
           </head>
           <body>
             <h1>YOUR DATA IS Submit</h1>
-            <a href="/member">Go to save data</a>
+            <a href="/renderlist">Go to save data</a>
           </body>
         </html>
-  `)
-  return res.end()
-}
-exports.submitForm = submitForm;
+  `);
+  return res.end();
+};
+module.exports = { submitForm };
