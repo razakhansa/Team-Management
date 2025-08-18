@@ -18,7 +18,7 @@ connection.connect((err) => {
   console.log(" Connected to the database successfully!");
 });
 
-const createMemeber = async (payload, res) => {
+const createMember = async (payload, res) => {
   console.log("Creating member");
   console.log(payload);
 
@@ -31,10 +31,10 @@ const createMemeber = async (payload, res) => {
     name: payload.name,
     email: payload.email,
     cnic: payload.cnic,
-    designation: payload.designation,
-    joining: payload.joining,
-    address: payload.address,
-    phone: payload.phone,
+    // designation: payload.designation,
+    // joining: payload.joining,
+    // address: payload.address,
+    // phone: payload.phone,
   };
 
   connection.query(query, data, (err, result) => {
@@ -65,9 +65,6 @@ const getUserByid = (id, callback) => {
     callback(null, results[0]);
   });
 };
-module.exports = { getUserByid };
 
-
-let gau = getAllUsers;
-
-exports.createMemeber = createMemeber;
+module.exports = { getUserByid,getAllUsers,createMember };
+ 
