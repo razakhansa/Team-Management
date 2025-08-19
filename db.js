@@ -18,7 +18,7 @@ connection.connect((err) => {
   console.log(" Connected to the database successfully!");
 });
 
-const createMember = async (payload, res) => {
+const createMemeber = async (payload, res) => {
   console.log("Creating member");
   console.log(payload);
 
@@ -31,7 +31,7 @@ const createMember = async (payload, res) => {
     name: payload.name,
     email: payload.email,
     cnic: payload.cnic,
-    // designation: payload.designation,
+    designation: payload.designation,
     // joining: payload.joining,
     // address: payload.address,
     // phone: payload.phone,
@@ -62,9 +62,11 @@ const getUserByid = (id, callback) => {
       console.error("Error fetching users by ID:", err);
       return callback(err, null);
     }
-    callback(null, results[0]);
-  });
+    callback(null, results[0]); 
+  }); 
 };
+module.exports = { getUserByid };
 
-module.exports = { getUserByid,getAllUsers,createMember };
- 
+let gau = getAllUsers;
+
+module.exports = { createMemeber };
