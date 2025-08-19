@@ -29,10 +29,6 @@ const createMember = (req, res) => {
             </body>
           </html>`);
   return res.end();
-
-
-
 };
-
 
 exports.createMemberForm = createMember;
