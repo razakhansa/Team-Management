@@ -3,6 +3,7 @@ const { renderList } = require("./actions/renderlist");
 const { createMemberForm } = require("./actions/createMember");
 const { createMemeber } = require("./db");
 const { submitForm } = require("./actions/file");
+const { eroorForm } = require("./actions/erorr");
 const requestHandler = async (req, res) => {
   console.log(req.url, req.method);
 
@@ -29,15 +30,21 @@ const requestHandler = async (req, res) => {
         dataObj[pair[0]] = pair[1];
       }
       // Here you would typically parse the request body to get the member details
-      createMemeber(dataObj, (err, result)=> console.log(err, result));
+      createMemeber(dataObj, (err, result)=> {
+        if(result){
+          console.log("ok")
+     submitForm(res)
+            
+        }else{
+          console.log(err)
+    eroorForm (res)
+
+        }
+      });
     });
 
-    return res.end();
-  }else if (req.url === "/file" && req.method === "POST") {
-     submitForm(req, res)
-  }else{
 
-  }
+  } 
 };
 
 exports.requestHandler = requestHandler;

@@ -4,6 +4,8 @@ const welcomeToTeamManagement = (req, res) => {
     <html>
       <head></head>
       <body><h1>Welcome to Team Management</h1></body> 
+      
+        <a href="/members">Go</a>
     </html>
   `);
   return res.end();
