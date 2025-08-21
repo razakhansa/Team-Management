@@ -29,12 +29,14 @@ const requestHandler = async (req, res) => {
         dataObj[pair[0]] = pair[1];
       }
       // Here you would typically parse the request body to get the member details
-      createMemeber(dataObj, res);
+      createMemeber(dataObj, (err, result)=> console.log(err, result));
     });
 
     return res.end();
-  }else if (req.url === "/members/create/submit" && req.method === "POST") {
+  }else if (req.url === "/file" && req.method === "POST") {
      submitForm(req, res)
+  }else{
+
   }
 };
 

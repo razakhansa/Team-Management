@@ -39,9 +39,9 @@ const renderList = async (req, res) => {
       "<tr>"
         +"<td>"+user.id+"</td>"
         +"<td>"+user.name+"</td>"
-		+"<td>"+user.email+"</td>"
-		+"<td>"+user.cnic+"</td>"
-		+"<td>"+user.designation+"</td>"
+				+"<td>"+user.email+"</td>"
+				+"<td>"+user.cnic+"</td>" 
+				+"<td>"+user.designation+"</td>"
 			+"</tr>")}
 
 			<button class="optp"><a href="/members/create">Form</a></button>
