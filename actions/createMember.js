@@ -6,7 +6,7 @@ const createMember = (req, res) => {
       <head><title>Form page</title></head>
       <body>
         <h2>ENTER YOUR PERSONAL DETAIL</h2>
-        <form action="/file" method="POST">
+        <form action="/members/create" method="POST">
           <label for="first">First Name</label><br>
           <input type="text" name="name" placeholder="Enter your name"><br><br>
 

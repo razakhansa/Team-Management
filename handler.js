@@ -4,7 +4,7 @@ const { createMemberForm } = require("./actions/createMember");
 const { submitForm } = require("./actions/file");
 
 
-const { createMember } = require("./db");
+const { createMemeber } = require("./db");
 
 const requestHandler = async (req, res) => {
   console.log(req.url, req.method);
@@ -29,7 +29,7 @@ const requestHandler = async (req, res) => {
         dataObj[pair[0]] = pair[1];
       }
       // Here you would typically parse the request body to get the member details
-      createMember(dataObj, res);
+      createMemeber(dataObj, (err, result)=> console.log(err, result));
     });
 
     return res.end();

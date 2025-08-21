@@ -33,6 +33,7 @@ const renderList = async (req, res) => {
 				<th>Name</th>
 				<th>Email</th>
 				<th>CNIC</th> 
+				<th>Designation</th>
 			</tr>
 			${users.map(user=>
       "<tr>"
@@ -40,6 +41,7 @@ const renderList = async (req, res) => {
         +"<td>"+user.name+"</td>"
 				+"<td>"+user.email+"</td>"
 				+"<td>"+user.cnic+"</td>" 
+				+"<td>"+user.designation+"</td>"
 			+"</tr>")}
 
 			<button class="optp"><a href="/members/create">Form</a></button>
