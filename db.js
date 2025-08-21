@@ -1,14 +1,12 @@
-
 const mysql = require("mysql2");
 
 const connection = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "",
-  port: 3307,
-  database: "team_management", 
+  port: 3306,
+  database: "team_management",
 });
-
 
 connection.connect((err) => {
   if (err) {
@@ -52,7 +50,7 @@ function getAllUsers(callback) {
 }
 getAllUsers((err, usersData) => {
   if (!err) {
-    console.log( usersData);
+    console.log(usersData);
   }
 });
 const getUserByid = (id, callback) => {
@@ -65,8 +63,4 @@ const getUserByid = (id, callback) => {
     callback(null, results[0]); 
   }); 
 };
-module.exports = { getUserByid };
-
-let gau = getAllUsers;
-
-module.exports = { createMemeber };
+module.exports = { getUserByid, getAllUsers, createMemeber,getUserByid };
