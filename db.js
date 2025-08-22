@@ -27,9 +27,9 @@ const createMemeber = (payload, callback) => {
     email: payload.email,
     cnic: payload.cnic,
     designation: payload.designation,
-    // joining: payload.joining,
-    // address: payload.address,
-    // phone: payload.phone,
+    joining: payload.joining,
+    address: payload.address,
+    phone: payload.phone,
   };
   // console.log(createMemeber);
 

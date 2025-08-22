@@ -34,6 +34,9 @@ const alertMessage = "Are you sure you want to delete this member?";
 				<th>Email</th>
 				<th>CNIC</th> 
 				<th>Designation</th>
+				<th>Joining</th>
+				<th>Address</th>
+				<th>Phone Number</th>
 			</tr>
 			${users.map(user=>
       "<tr>"
@@ -42,7 +45,10 @@ const alertMessage = "Are you sure you want to delete this member?";
 		+"<td>"+user.email+"</td>"
 		+"<td>"+user.cnic+"</td>" 
 		+"<td>"+user.designation+"</td>"
-		+"<td><a href='/members/create?id="+user.id+"'>Edit</a>"
+		+"<td>"+user.joining+"</td>"
+		+"<td>"+user.address+"</td>"
+		+"<td>"+user.phonenumber+"</td>"
+		+"<td><button><a href='/members/create?id="+user.id+"'>Edit</a></button></td>"
 		+`<button onclick="deleteFunc(${user.id})">delete</button></td>`
 			+"</tr>")}
 
