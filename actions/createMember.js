@@ -35,6 +35,9 @@ const createMember = (req, res) => {
 
           <input type="submit" value="submit">
         </form> 
+
+        <button><a href="/members">Back to Members List</a></button>
+        <button><a href="/">Back to Home</a></button>
       </body>
     </html>
   `);

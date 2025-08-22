@@ -47,6 +47,8 @@ const alertMessage = "Are you sure you want to delete this member?";
 			+"</tr>")}
 
 		</table>
+		<button><a href="/members/create">Add New Member</a></button>
+		<button><a href="/">Back to Home</a></button>
 	</body>
 	
 
