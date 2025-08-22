@@ -1,10 +1,10 @@
- const { getAllUsers, getUserByid } = require("../db");
+ const { getAllUsers, getUserByid, deleteUser } = require("../db");
 const renderList = async (req, res) => {
 //  const users = await getAllUsers((err, users) => {
 //     return users
 //    }) 
   console.log("Rendering list of members");
-
+const alertMessage = "Are you sure you want to delete this member?";	
    res.setHeader("Content-Type", "text/html");
 
   getAllUsers((err, users) => {
@@ -39,14 +39,26 @@ const renderList = async (req, res) => {
       "<tr>"
         +"<td>"+user.id+"</td>"
         +"<td>"+user.name+"</td>"
-				+"<td>"+user.email+"</td>"
-				+"<td>"+user.cnic+"</td>" 
-				+"<td>"+user.designation+"</td>"
+		+"<td>"+user.email+"</td>"
+		+"<td>"+user.cnic+"</td>" 
+		+"<td>"+user.designation+"</td>"
+		+"<td><a href='/members/create?id="+user.id+"'>Edit</a>"
+		+`<button onclick="deleteFunc(${user.id})">delete</button></td>`
 			+"</tr>")}
 
-			<button class="optp"><a href="/members/create">Form</a></button>
 		</table>
 	</body>
+	
+
+<script>
+function deleteFunc(id) {
+  let text; 
+  if (confirm("Press a button!") == true) {
+  window.location.href = "/members/delete?id="+id;
+  }  
+	
+}
+</script>
 </html>
 
         `);

@@ -53,6 +53,11 @@ function getAllUsers(callback) {
     callback(null, results);
   });
 }
+
+  function showAlert() {
+    alert("Button clicked!");
+  }
+
 // getAllUsers((err, usersData) => {
 //   if (!err) {
 //     console.log( usersData);
@@ -68,4 +73,18 @@ const getUserByid = (id, callback) => {
     callback(null, results[0]); 
   }); 
 };
-module.exports = { getUserByid, getAllUsers, createMemeber,getUserByid };
+
+const deleteUser = (id, callback) => {
+  console.log("delete user id",id);
+  const query = "DELETE FROM users WHERE id =?";
+  connection.query(query, [id], (err, results) => {
+    if (err) {
+      console.error("Error Deleting users by ID:", err.Message);
+      return callback(err, null);
+    }
+    callback(null, results); 
+  }); 
+};
+
+
+module.exports = { getUserByid, getAllUsers, createMemeber,getUserByid ,deleteUser};
