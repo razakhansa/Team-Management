@@ -4,8 +4,8 @@ const connection = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "",
-  port: 3307,
-  database: "management",
+  port: 3306,
+  database: "team_management",
 });
 
 connection.connect((err) => {
@@ -16,7 +16,6 @@ connection.connect((err) => {
   console.log(" Connected to the database successfully!");
 });
 
- 
 const createMemeber = (payload, callback) => {
   if (!payload) {
     return callback("Invalid user data", null);
@@ -33,14 +32,13 @@ const createMemeber = (payload, callback) => {
   };
   // console.log(createMemeber);
 
-
   connection.query(query, data, (err, result) => {
-    if(err){
-      console.error("insert failed:",err.sqlMessage);
-      return callback(err, null );
+    if (err) {
+      console.error("insert failed:", err.sqlMessage);
+      return callback(err, null);
     }
     console.log("insert success,ID:", result.insertId);
-    callback(null,result);
+    callback(null, result);
   });
 };
 function getAllUsers(callback) {
@@ -54,9 +52,9 @@ function getAllUsers(callback) {
   });
 }
 
-  function showAlert() {
-    alert("Button clicked!");
-  }
+function showAlert() {
+  alert("Button clicked!");
+}
 
 // getAllUsers((err, usersData) => {
 //   if (!err) {
@@ -70,21 +68,26 @@ const getUserByid = (id, callback) => {
       console.error("Error fetching users by ID:", err.Message);
       return callback(err, null);
     }
-    callback(null, results[0]); 
-  }); 
+    callback(null, results[0]);
+  });
 };
 
 const deleteUser = (id, callback) => {
-  console.log("delete user id",id);
+  console.log("delete user id", id);
   const query = "DELETE FROM users WHERE id =?";
   connection.query(query, [id], (err, results) => {
     if (err) {
       console.error("Error Deleting users by ID:", err.Message);
       return callback(err, null);
     }
-    callback(null, results); 
-  }); 
+    callback(null, results);
+  });
 };
 
-
-module.exports = { getUserByid, getAllUsers, createMemeber,getUserByid ,deleteUser};
+module.exports = {
+  getUserByid,
+  getAllUsers,
+  createMemeber,
+  getUserByid,
+  deleteUser,
+};
