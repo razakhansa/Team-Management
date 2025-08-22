@@ -4,7 +4,7 @@ const connection = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "",
-  port: 3307,
+  port: 3306,
   database: "management",
 });
 
@@ -29,7 +29,8 @@ const createMemeber = (payload, callback) => {
     designation: payload.designation,
     joining: payload.joining,
     address: payload.address,
-    phone: payload.phone,
+    phonenumber: payload.phone,
+
   };
   // console.log(createMemeber);
 

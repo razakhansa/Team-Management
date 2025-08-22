@@ -1,5 +1,5 @@
- const submitForm = ( res) => {
-
+ const eroorForm = ( res) => {
+ 
 
   res.setHeader("Content-Type", "text/html");
   res.write(`
@@ -8,12 +8,12 @@
         <title>Project</title>
       </head>
       <body>
-        <h1>Form Submitted Successfully!</h1>
-        <a href="/members">Go to save data</a>
+        <h1>Some Think Went Worng!</h1>
+        <a href="/members/create">Go to form</a>
       </body>
     </html>
   `);
   return res.end();
 };
 
-module.exports = { submitForm };
+module.exports = { eroorForm };
