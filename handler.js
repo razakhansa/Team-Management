@@ -30,6 +30,7 @@ const requestHandler = async (req, res) => {
       for (var pair of parsedData.entries()) {
         dataObj[pair[0]] = pair[1];
       }
+
       if (!dataObj.name || !dataObj.email || !dataObj.cnic) {
         res.writeHead(400, { "Content-Type": "text/plain" });
         return res.end(" Name, Email, and CNIC are required!");
