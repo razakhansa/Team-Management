@@ -32,6 +32,10 @@ const requestHandler = async (req, res) => {
         dataObj[pair[0]] = pair[1];
       }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> f3cc9bca72749d32a3dec08f991eb4094169c9a9
       if (!dataObj.name || !dataObj.email || !dataObj.cnic) {
         res.writeHead(400, { "Content-Type": "text/plain" });
         return res.end(" Name, Email, and CNIC are required!");
@@ -44,6 +48,7 @@ const requestHandler = async (req, res) => {
         res.writeHead(201, { "Content-Type": "text/plain" });
         res.end(" Member created successfully with ID: " + result.insertId);
       });
+<<<<<<< HEAD
     });
   } else if (isDeleteMember) {
     const id = req.url.split("?")?.[1]?.split("=")?.[1];
@@ -74,6 +79,20 @@ const requestHandler = async (req, res) => {
 
   } 
 >>>>>>> ahmad
+=======
+    });
+  } else if (isDeleteMember) {
+    const id = req.url.split("?")?.[1]?.split("=")?.[1];
+    if (!id) {
+      res.writeHead(400, { "Content-Type": "text/plain" });
+      return res.end("member ID required for delete!");
+    }
+    deleteUser(id, (err, response) =>
+      console.log("delete response", err, response)
+    );
+  } else {
+  }
+>>>>>>> f3cc9bca72749d32a3dec08f991eb4094169c9a9
 };
 
 exports.requestHandler = requestHandler;
