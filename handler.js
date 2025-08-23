@@ -31,11 +31,6 @@ const requestHandler = async (req, res) => {
       for (var pair of parsedData.entries()) {
         dataObj[pair[0]] = pair[1];
       }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> f3cc9bca72749d32a3dec08f991eb4094169c9a9
       if (!dataObj.name || !dataObj.email || !dataObj.cnic) {
         res.writeHead(400, { "Content-Type": "text/plain" });
         return res.end(" Name, Email, and CNIC are required!");
@@ -48,8 +43,8 @@ const requestHandler = async (req, res) => {
         res.writeHead(201, { "Content-Type": "text/plain" });
         res.end(" Member created successfully with ID: " + result.insertId);
       });
-<<<<<<< HEAD
     });
+  
   } else if (isDeleteMember) {
     const id = req.url.split("?")?.[1]?.split("=")?.[1];
     if (!id) {
@@ -59,29 +54,10 @@ const requestHandler = async (req, res) => {
     deleteUser(id, (err, response) =>
       console.log("delete response", err, response)
     );
-  } else {
-  }
-=======
-      // Here you would typically parse the request body to get the member details
-      createMemeber(dataObj, (err, result)=> {
-        if(result){
-          console.log("ok")
-     submitForm(res)
-            
-        }else{
-          console.log(err)
-    eroorForm (res)
-
-        }
-      });
-    });
-
-
   } 
->>>>>>> ahmad
-=======
-    });
-  } else if (isDeleteMember) {
+
+   
+   else if (isDeleteMember) {
     const id = req.url.split("?")?.[1]?.split("=")?.[1];
     if (!id) {
       res.writeHead(400, { "Content-Type": "text/plain" });
@@ -90,9 +66,8 @@ const requestHandler = async (req, res) => {
     deleteUser(id, (err, response) =>
       console.log("delete response", err, response)
     );
-  } else {
-  }
->>>>>>> f3cc9bca72749d32a3dec08f991eb4094169c9a9
-};
+  } }
+
+;
 
 exports.requestHandler = requestHandler;

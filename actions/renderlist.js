@@ -23,11 +23,12 @@ const alertMessage = "Are you sure you want to delete this member?";
 		  text-decoration: none;
 
 		  }
+
 	</style>
 	<head></head>
 	<body>
 		<h2>TekBex Employes names and information</h2>
-		<table style="width:100%">
+		<table style="width:100%" >
     	<tr>
 				<th>ID</th>
 				<th>Name</th>

@@ -4,12 +4,8 @@ const connection = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "",
-  port: 3306,
-<<<<<<< HEAD
+  port: 3307,
   database: "management",
-=======
-  database: "team_management",
->>>>>>> f3cc9bca72749d32a3dec08f991eb4094169c9a9
 });
 
 connection.connect((err) => {
@@ -58,7 +54,7 @@ function getAllUsers(callback) {
 }
 
 function showAlert() {
-  alert("Button clicked!");
+ showAlert("Button clicked!");
 }
 
 // getAllUsers((err, usersData) => {
